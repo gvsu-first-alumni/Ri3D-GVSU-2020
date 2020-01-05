@@ -13,6 +13,8 @@ public class DriveTrainSubsystem implements Subsystem
     private CANSparkMax       left;
     private CANSparkMax       right;
 
+    private boolean isForward;
+
     /**
      * The Singleton instance of this DriveTrainSubsystem. External classes should
      * use the {@link #getInstance()} method to get the instance.
@@ -35,7 +37,21 @@ public class DriveTrainSubsystem implements Subsystem
     }
 
     public void tankDrive(double left, double right) {
+        if (isForward()) {
+            left = -left;
+            right = -right;
+        }
         drive.tankDrive(left, right);
+    }
+
+    public boolean isForward()
+    {
+        return isForward;
+    }
+
+    public void setForward(boolean forward)
+    {
+        isForward = forward;
     }
 
     /**
