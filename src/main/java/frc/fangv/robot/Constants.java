@@ -20,4 +20,6 @@ public final class Constants
     public static final double FORWARDSPEED = 0.75;
     public static final double BACKWARDSPEED = -0.075;
     public static final double STOPSPEED = 0.0;
+    public static final int CONTROLPANELWHEELFORWARDBUTTON = 5;
+    public static final int CONTROLPANELWHEELBACKWARDBUTTON = 6;
 }

@@ -9,7 +9,10 @@ package frc.fangv.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.fangv.robot.commands.ControlPanelWheelBackwardCommand;
+import frc.fangv.robot.commands.ControlPanelWheelForwardCommand;
 import frc.fangv.robot.subsystems.CameraSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
 
@@ -45,6 +48,13 @@ public class RobotContainer
     private void configureButtonBindings()
     {
         oi  = new OperatorInput();
+        JoystickButton controlPanelForwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
+        JoystickButton controlPanelBackwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELBACKWARDBUTTON);
+
+        controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand());
+        controlPanelForwardButton.whileHeld(new ControlPanelWheelForwardCommand());
     }
 
 
