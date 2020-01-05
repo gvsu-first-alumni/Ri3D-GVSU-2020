@@ -2,17 +2,17 @@ package frc.fangv.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
-import frc.fangv.robot.subsystems.ControlPanelSubsystem;
+import frc.fangv.robot.subsystems.HookAndWinchSubsystem;
 
 import java.util.Set;
 
-public class ControlPanelWheelBackwardCommand implements Command {
-    private final ControlPanelSubsystem controlPanelSubsystem;
+public class WinchMotorBackwardCommand implements Command {
+    private final HookAndWinchSubsystem hookAndWinchSubsystem;
     private final Set<Subsystem> subsystems;
 
-    public ControlPanelWheelBackwardCommand(ControlPanelSubsystem controlPanelSubsystem) {
-        this.controlPanelSubsystem = controlPanelSubsystem;
-        this.subsystems = Set.of(controlPanelSubsystem);
+    public WinchMotorBackwardCommand(HookAndWinchSubsystem hookAndWinchSubsystem) {
+        this.hookAndWinchSubsystem = hookAndWinchSubsystem;
+        this.subsystems = Set.of(hookAndWinchSubsystem);
     }
 
     @Override
@@ -22,7 +22,7 @@ public class ControlPanelWheelBackwardCommand implements Command {
 
     @Override
     public void execute() {
-        ControlPanelSubsystem.getInstance().Backward();
+        hookAndWinchSubsystem.backward();
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ControlPanelWheelBackwardCommand implements Command {
 
     @Override
     public void end(boolean interrupted) {
-        ControlPanelSubsystem.getInstance().Stop();
+        hookAndWinchSubsystem.stop();
     }
 
     @Override

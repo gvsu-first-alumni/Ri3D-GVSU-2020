@@ -1,38 +1,43 @@
 package frc.fangv.robot.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-import frc.fangv.robot.RobotContainer;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.fangv.robot.subsystems.ControlPanelSubsystem;
 
-public class ControlPanelWheelForwardCommand extends Command {
+import java.util.Set;
 
-    public ControlPanelWheelForwardCommand() {
-        // If any subsystems are needed, you will need to pass them into the requires() method
+public class ControlPanelWheelForwardCommand implements Command {
+    private final ControlPanelSubsystem controlPanelSubsystem;
+    private final Set<Subsystem> subsystems;
+
+    public ControlPanelWheelForwardCommand(ControlPanelSubsystem controlPanelSubsystem) {
+        this.controlPanelSubsystem = controlPanelSubsystem;
+        this.subsystems = Set.of(controlPanelSubsystem);
     }
 
     @Override
-    protected void initialize() {
+    public void initialize() {
 
     }
 
     @Override
-    protected void execute() {
+    public void execute() {
         ControlPanelSubsystem.getInstance().Forward();
     }
 
     @Override
-    protected boolean isFinished() {
+    public boolean isFinished() {
         // TODO: Make this return true when this Command no longer needs to run execute()
         return false;
     }
 
     @Override
-    protected void end() {
+    public void end(boolean interrupted) {
         ControlPanelSubsystem.getInstance().Stop();
     }
 
     @Override
-    protected void interrupted() {
-
+    public Set<Subsystem> getRequirements() {
+        return this.subsystems;
     }
 }

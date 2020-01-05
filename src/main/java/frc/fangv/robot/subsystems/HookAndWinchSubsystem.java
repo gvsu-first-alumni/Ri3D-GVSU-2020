@@ -4,6 +4,7 @@ package frc.fangv.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.fangv.robot.Constants;
 
 public class HookAndWinchSubsystem implements Subsystem {
 
@@ -36,7 +37,23 @@ public class HookAndWinchSubsystem implements Subsystem {
         return INSTANCE;
     }
 
-    /** Solenoid Fire and Release */
+    /** Solenoid Fire */
+    public void fire(){ hookSolenoid.set(true); }
+
+    /** Solenoid isFired */
+    public boolean isFired(){ return hookSolenoid.get(); }
+
+    /** Solenoid Release */
+    public void release(){ hookSolenoid.set(false);}
+
+    /** Winch Motor Forward */
+    public void forward(){ winchMotor.set(Constants.WINCHMOTORSPEEDFORWARD);}
+
+    /** Winch Motor Backward */
+    public void backward(){ winchMotor.set(Constants.WINCHMOTORSPEEDBACKWARD);}
+
+    /** Winch Motor Stop */
+    public void stop(){ winchMotor.set(Constants.WINCHMOTORSTOP);}
 
 }
 
