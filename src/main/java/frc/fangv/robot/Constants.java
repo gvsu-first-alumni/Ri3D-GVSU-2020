@@ -17,6 +17,8 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
+    public final static int CHANGE_FRONT_BUTTON = 32;
+
     public final static int LEFT_DRIVE = 5;
     public final static int RIGHT_DRIVE = 4;
     public final static int TOGGLE_FRONT_BUTTON = 5;
