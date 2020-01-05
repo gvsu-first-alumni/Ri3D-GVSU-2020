@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.fangv.robot.commands.RampMotorCommand;
 import frc.fangv.robot.subsystems.CameraSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
+import frc.fangv.robot.subsystems.RampSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -26,6 +27,7 @@ public class RobotContainer
     // The robot's subsystems and commands are defined here...
     private final DriveTrainSubsystem driveTrain = DriveTrainSubsystem.getInstance();
     private final CameraSubsystem camera = CameraSubsystem.getInstance();
+    private final RampSubsystem ramp = RampSubsystem.getInstance();
 
     private OperatorInput oi;
 
