@@ -2,6 +2,7 @@ package frc.fangv.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.fangv.robot.subsystems.DriveTrainSubsystem;
 import frc.fangv.robot.subsystems.HookAndWinchSubsystem;
 
 import java.util.Set;
@@ -17,8 +18,14 @@ public class ToggleHookSolenoidExtendReleaseCommand implements Command {
 
     @Override
     public void initialize() {
-        if(HookAndWinchSubsystem.getInstance().isFired()){ hookAndWinchSubsystem.release();}
-        else {hookAndWinchSubsystem.fire();}
+        if(HookAndWinchSubsystem.getInstance().isFired()){
+            hookAndWinchSubsystem.release();
+            DriveTrainSubsystem.getInstance().setFired(false);
+        }
+        else {
+            hookAndWinchSubsystem.fire();
+            DriveTrainSubsystem.getInstance().setFired(true);
+        }
     }
 
     @Override

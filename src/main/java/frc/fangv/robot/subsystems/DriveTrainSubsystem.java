@@ -16,6 +16,16 @@ public class DriveTrainSubsystem implements Subsystem
 
     private boolean isForward;
 
+    public boolean isFired() {
+        return isFired;
+    }
+
+    public void setFired(boolean fired) {
+        isFired = fired;
+    }
+
+    private boolean isFired = false;
+
     /**
      * The Singleton instance of this DriveTrainSubsystem. External classes should
      * use the {@link #getInstance()} method to get the instance.
@@ -43,7 +53,8 @@ public class DriveTrainSubsystem implements Subsystem
             left = -right;
             right = temp;
         }
-        drive.tankDrive(-left, -right);
+        if (isFired){ drive.tankDrive(-0.5*left, -0.5*right); }
+        else { drive.tankDrive(-left, -right);}
     }
 
     public boolean isForward()

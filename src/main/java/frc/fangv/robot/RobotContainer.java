@@ -64,10 +64,11 @@ public class RobotContainer
                 new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORFORWARDBUTTON);
         JoystickButton winchMotorBackwardButton =
                 new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORBACKWARDBUTTON);
-        hookSolenoidExtendReleaseButton.toggleWhenPressed
+        hookSolenoidExtendReleaseButton.whenPressed
                 (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
         winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
         winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
+
 
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
         toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
