@@ -44,13 +44,20 @@ def includeDesktopSupport = false
 test {
     useJUnitPlatform()
 }
-        
+
+repositories {
+    flatDir {
+        dirs '/SPARK-MAX-SDK-v1.5.1/maven/com/revrobotics/frc/SparkMax-java/1.5.1'
+    }
+}
+
 dependencies {
     def junit5Version = '5.5.2'
     implementation wpi.deps.wpilib()
     nativeZip wpi.deps.wpilibJni(wpi.platforms.roborio)
     nativeDesktopZip wpi.deps.wpilibJni(wpi.platforms.desktop)
 
+    implementation name: 'SparkMax-java-1.5.1'
 
     implementation wpi.deps.vendor.java()
     nativeZip wpi.deps.vendor.jni(wpi.platforms.roborio)
