@@ -17,5 +17,7 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
-    
+    public static final double FORWARDSPEED = 0.75;
+    public static final double BACKWARDSPEED = -0.075;
+    public static final double STOPSPEED = 0.0;
 }

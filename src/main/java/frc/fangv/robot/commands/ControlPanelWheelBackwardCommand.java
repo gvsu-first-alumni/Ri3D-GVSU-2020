@@ -1,6 +1,7 @@
 package frc.fangv.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.fangv.robot.subsystems.ControlPanelSubsystem;
 
 public class ControlPanelWheelBackwardCommand extends Command {
 
@@ -15,7 +16,7 @@ public class ControlPanelWheelBackwardCommand extends Command {
 
     @Override
     protected void execute() {
-
+        ControlPanelSubsystem.getInstance().Backward();
     }
 
     @Override
@@ -26,7 +27,7 @@ public class ControlPanelWheelBackwardCommand extends Command {
 
     @Override
     protected void end() {
-
+        ControlPanelSubsystem.getInstance().Stop();
     }
 
     @Override

@@ -1,10 +1,14 @@
-import edu.wpi.first.wpilibj.command.Subsystem;
+package frc.fangv.robot.subsystems;
 
-public class ControlPanelSubsystem extends Subsystem {
+import frc.fangv.robot.Constants;
+import com.revrobotics.CANSparkMax;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 
+public class ControlPanelSubsystem implements Subsystem {
 // Any variables/fields used in the constructor must appear before the "INSTANCE" variable
 // so that they are initialized before the constructor is called.
 
+    CANSparkMax controlPanelMotor;
     /**
      * The Singleton instance of this ControlPanelSubsystem. External classes should
      * use the {@link #getInstance()} method to get the instance.
@@ -29,10 +33,13 @@ public class ControlPanelSubsystem extends Subsystem {
         return INSTANCE;
     }
 
-    @Override
-    protected void initDefaultCommand() {
-        // TODO: Set the default command, if any, for this subsystem by calling setDefaultCommand(command)
-        //       e.g. setDefaultCommand(new MyCommand());
-    }
+    /** FORWARD */
+    public void Forward(){ controlPanelMotor.set(Constants.FORWARDSPEED);}
+
+    /** BACKWARD */
+    public void Backward(){ controlPanelMotor.set(Constants.BACKWARDSPEED);}
+
+    /** STOP */
+    public void Stop(){ controlPanelMotor.set(Constants.STOPSPEED);}
 }
 
