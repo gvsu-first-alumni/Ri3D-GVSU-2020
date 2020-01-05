@@ -9,13 +9,14 @@ package frc.fangv.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.fangv.robot.commands.GateCommand;
-import frc.fangv.robot.commands.RampMotorCommand;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.fangv.robot.commands.*;
 import frc.fangv.robot.subsystems.CameraSubsystem;
+import frc.fangv.robot.subsystems.ControlPanelSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
 import frc.fangv.robot.subsystems.RampSubsystem;
+import frc.fangv.robot.subsystems.HookAndWinchSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -29,7 +30,8 @@ public class RobotContainer
     private final DriveTrainSubsystem driveTrain = DriveTrainSubsystem.getInstance();
     private final CameraSubsystem camera = CameraSubsystem.getInstance();
     private final RampSubsystem ramp = RampSubsystem.getInstance();
-
+    private final ControlPanelSubsystem controlPanel = ControlPanelSubsystem.getInstance();
+    private final HookAndWinchSubsystem hookAndWinch = HookAndWinchSubsystem.getInstance();
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -52,6 +54,31 @@ public class RobotContainer
 
         JoystickButton gateButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMP_GATE_BUTTON);
         gateButton.whenPressed(new GateCommand(ramp));
+
+        /** Control Panel Stuff */
+        JoystickButton controlPanelForwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
+        JoystickButton controlPanelBackwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELBACKWARDBUTTON);
+        controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand(controlPanel));
+        controlPanelForwardButton.whileHeld(new ControlPanelWheelForwardCommand(controlPanel));
+
+
+        /** Hook And Winch Stuff */
+        JoystickButton hookSolenoidExtendReleaseButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.HOOKSOLENOIDEXTENDRELEASEBUTTON);
+        JoystickButton winchMotorForwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORFORWARDBUTTON);
+        JoystickButton winchMotorBackwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORBACKWARDBUTTON);
+        hookSolenoidExtendReleaseButton.whenPressed
+                (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
+        winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
+        winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
+
+
+        JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
+        toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
     }
 
 
