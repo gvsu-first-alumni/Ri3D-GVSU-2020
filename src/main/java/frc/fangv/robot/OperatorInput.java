@@ -1,5 +1,6 @@
 package frc.fangv.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 
 public class OperatorInput
