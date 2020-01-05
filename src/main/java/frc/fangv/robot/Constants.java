@@ -17,5 +17,7 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
-    
+    public static final double RAMPMOTORSPEED = 0;
+    public static final double RAMPMOTORSTOP = 0;
+    public static final int RAMPMOTORBUTTON = 2;
 }
