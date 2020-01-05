@@ -31,8 +31,6 @@ public class RobotContainer
     private final ControlPanelSubsystem controlPanel = ControlPanelSubsystem.getInstance();
     private final HookAndWinchSubsystem hookAndWinch = HookAndWinchSubsystem.getInstance();
 
-    private OperatorInput oi;
-
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
      */
@@ -50,6 +48,7 @@ public class RobotContainer
      */
     private void configureButtonBindings()
     {
+
         oi  = new OperatorInput();
 
         /** Control Panel Stuff */
@@ -72,6 +71,12 @@ public class RobotContainer
                 (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
         winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
         winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
+
+        JoystickButton changeFrontButton =
+                new JoystickButton(OperatorInput.getDriverStick(), Constants.CHANGE_FRONT_BUTTON);
+        JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
+        toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
+
     }
 
 

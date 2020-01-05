@@ -32,4 +32,11 @@ public final class Constants
     public static final int WINCHMOTORFORWARDBUTTON = 7;
     public static final int WINCHMOTORBACKWARDBUTTON = 5;
 
+    public final static double CONTROL_PANEL_PID_P = 1.0;
+    public final static double CONTROL_PANEL_PID_I = 0.0;
+    public final static double CONTROL_PANEL_PID_D = 0.0;
+
+    public final static int LEFT_DRIVE = 5;
+    public final static int RIGHT_DRIVE = 4;
+    public final static int TOGGLE_FRONT_BUTTON = 5;
 }
