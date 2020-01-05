@@ -1,15 +1,20 @@
 package frc.fangv.robot.commands;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.fangv.robot.subsystems.RampSubsystem;
+import java.util.Set;
 
 
-public class GateCommand extends CommandBase {
+public class GateCommand implements Command
+{
     private final RampSubsystem rampSubsystem;
+    private final Set<Subsystem> subsystems;
 
     public GateCommand(RampSubsystem rampSubsystem) {
         this.rampSubsystem = rampSubsystem;
-        addRequirements(rampSubsystem);
+        this.subsystems = Set.of(rampSubsystem);
     }
 
     @Override
@@ -35,4 +40,7 @@ public class GateCommand extends CommandBase {
     public void end(boolean interrupted) {
 
     }
+
+    @Override
+    public Set<Subsystem> getRequirements() { return this.subsystems; }
 }

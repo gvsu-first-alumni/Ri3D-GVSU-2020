@@ -4,13 +4,14 @@ package frc.fangv.robot.subsystems;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.fangv.robot.Constants;
 
 public class RampSubsystem extends SubsystemBase {
 
     CANSparkMax rampMotor;
-    DoubleSolenoid gate;
+    Solenoid    gate;
 
     /**
      * The Singleton instance of this RampSubsystem. External classes should
@@ -30,7 +31,7 @@ public class RampSubsystem extends SubsystemBase {
         //       such as SpeedControllers, Encoders, DigitalInputs, etc.
 
         rampMotor = new CANSparkMax(Constants.RAMP_MOTOR_ID, CANSparkMaxLowLevel.MotorType.kBrushless);
-        gate = new DoubleSolenoid(Constants.RAMP_FORWARD_CHANNEL, Constants.RAMP_REVERSE_CHANNEL);
+        gate = new Solenoid(Constants.RAMP_FORWARD_CHANNEL);
 
     }
 
@@ -47,12 +48,12 @@ public class RampSubsystem extends SubsystemBase {
 
     public void stop() { rampMotor.set(Constants.RAMP_MOTOR_STOP); }
 
-    public void open() { gate.set(DoubleSolenoid.Value.kForward); }
+    public void open() { gate.set(true); }
 
-    public void close() { gate.set(DoubleSolenoid.Value.kReverse); }
+    public void close() { gate.set(false); }
 
     public boolean isOpen(){
-        if(gate.get() == DoubleSolenoid.Value.kForward)
+        if(gate.get())
             return true;
         else
             return false;

@@ -22,7 +22,7 @@ public final class Constants
     public static final int RAMP_MOTOR_BUTTON = 1;
     public static final int RAMP_MOTOR_ID = 1;
 
-    public static final int RAMP_FORWARD_CHANNEL = 1;
+    public static final int RAMP_FORWARD_CHANNEL = 0;
     public static final int RAMP_REVERSE_CHANNEL = 1;
-    public static final int RAMP_GATE_BUTTON = 1;
+    public static final int RAMP_GATE_BUTTON = 2;
 }
