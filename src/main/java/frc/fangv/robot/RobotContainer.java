@@ -48,9 +48,6 @@ public class RobotContainer
      */
     private void configureButtonBindings()
     {
-
-        oi  = new OperatorInput();
-
         /** Control Panel Stuff */
         JoystickButton controlPanelForwardButton =
                 new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
@@ -71,9 +68,7 @@ public class RobotContainer
                 (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
         winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
         winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
-
-        JoystickButton changeFrontButton =
-                new JoystickButton(OperatorInput.getDriverStick(), Constants.CHANGE_FRONT_BUTTON);
+        
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
         toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
 
