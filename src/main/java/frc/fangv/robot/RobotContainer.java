@@ -15,6 +15,7 @@ import frc.fangv.robot.commands.*;
 import frc.fangv.robot.subsystems.CameraSubsystem;
 import frc.fangv.robot.subsystems.ControlPanelSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
+import frc.fangv.robot.subsystems.RampSubsystem;
 import frc.fangv.robot.subsystems.HookAndWinchSubsystem;
 
 /**
@@ -28,6 +29,7 @@ public class RobotContainer
     // The robot's subsystems and commands are defined here...
     private final DriveTrainSubsystem driveTrain = DriveTrainSubsystem.getInstance();
     private final CameraSubsystem camera = CameraSubsystem.getInstance();
+    private final RampSubsystem ramp = RampSubsystem.getInstance();
     private final ControlPanelSubsystem controlPanel = ControlPanelSubsystem.getInstance();
     private final HookAndWinchSubsystem hookAndWinch = HookAndWinchSubsystem.getInstance();
 
@@ -46,8 +48,13 @@ public class RobotContainer
      * edu.wpi.first.wpilibj.Joystick Joystick} or {@link XboxController}), and then passing it to a
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton JoystickButton}.
      */
-    private void configureButtonBindings()
-    {
+    private void configureButtonBindings() {
+        JoystickButton rampMotorButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMP_MOTOR_BUTTON);
+        rampMotorButton.whileHeld(new RampMotorCommand(ramp));
+
+        JoystickButton gateButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMP_GATE_BUTTON);
+        gateButton.whenPressed(new GateCommand(ramp));
+
         /** Control Panel Stuff */
         JoystickButton controlPanelForwardButton =
                 new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
@@ -72,7 +79,6 @@ public class RobotContainer
 
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
         toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
-
     }
 
 
