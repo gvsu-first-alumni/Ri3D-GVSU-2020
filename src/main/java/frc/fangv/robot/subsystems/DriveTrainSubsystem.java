@@ -4,6 +4,7 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.Subsystem;
+import frc.fangv.robot.Constants;
 import frc.fangv.robot.commands.DriveCommand;
 
 public class DriveTrainSubsystem implements Subsystem
@@ -31,17 +32,18 @@ public class DriveTrainSubsystem implements Subsystem
         // TODO: Set the default command, if any, for this subsystem by calling setDefaultCommand(command)
         //       in the constructor or in the robot coordination class, such as RobotContainer.
         setDefaultCommand(new DriveCommand(this));
-        this.left = new CANSparkMax(1, CANSparkMaxLowLevel.MotorType.kBrushless);
-        this.right = new CANSparkMax(2, CANSparkMaxLowLevel.MotorType.kBrushless);
-        this.drive = new DifferentialDrive(left, right);
+        this.left = new CANSparkMax(Constants.LEFT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
+        this.right = new CANSparkMax(Constants.RIGHT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
+        this.drive = new DifferentialDrive(this.left, this.right);
     }
 
     public void tankDrive(double left, double right) {
         if (isForward()) {
-            left = -left;
-            right = -right;
+            double temp = -left;
+            left = -right;
+            right = temp;
         }
-        drive.tankDrive(left, right);
+        drive.tankDrive(-left, -right);
     }
 
     public boolean isForward()

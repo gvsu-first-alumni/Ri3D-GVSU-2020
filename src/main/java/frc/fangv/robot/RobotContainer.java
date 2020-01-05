@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.fangv.robot.commands.ChangeFrontCommand;
 import frc.fangv.robot.subsystems.CameraSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
 
@@ -45,6 +46,8 @@ public class RobotContainer
     {
         JoystickButton changeFrontButton =
                 new JoystickButton(OperatorInput.getDriverStick(), Constants.CHANGE_FRONT_BUTTON);
+        JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
+        toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
     }
 
 
