@@ -84,6 +84,7 @@ public class RobotContainer
     public Command getAutonomousCommand()
     {
         // TODO: Change to auto
-        return null;
+        // Inches
+        return new DriveDistanceCommand(driveTrain, 120);
     }
 }
