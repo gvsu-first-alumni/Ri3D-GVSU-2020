@@ -14,6 +14,17 @@ public class DriveTrainSubsystem implements Subsystem
     private CANSparkMax       left;
     private CANSparkMax       right;
 
+    private boolean isForward;
+
+    public boolean isFired() {
+        return isFired;
+    }
+
+    public void setFired(boolean fired) {
+        isFired = fired;
+    }
+
+    private boolean isFired = false;
 
     /**
      * The Singleton instance of this DriveTrainSubsystem. External classes should
@@ -37,7 +48,23 @@ public class DriveTrainSubsystem implements Subsystem
     }
 
     public void tankDrive(double left, double right) {
-        drive.tankDrive(-left, -right);
+        if (isForward()) {
+            double temp = -left;
+            left = -right;
+            right = temp;
+        }
+        if (isFired){ drive.tankDrive(-0.5*left, -0.5*right); }
+        else { drive.tankDrive(-left, -right);}
+    }
+
+    public boolean isForward()
+    {
+        return isForward;
+    }
+
+    public void setForward(boolean forward)
+    {
+        isForward = forward;
     }
 
     /**
