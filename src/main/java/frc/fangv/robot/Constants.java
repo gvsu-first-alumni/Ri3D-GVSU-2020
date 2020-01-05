@@ -17,7 +17,12 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
-    public static final double RAMPMOTORSPEED = 0;
-    public static final double RAMPMOTORSTOP = 0;
-    public static final int RAMPMOTORBUTTON = 2;
+    public static final double RAMP_MOTOR_SPEED = 0;
+    public static final double RAMP_MOTOR_STOP = 0;
+    public static final int RAMP_MOTOR_BUTTON = 1;
+    public static final int RAMP_MOTOR_ID = 1;
+
+    public static final int RAMP_FORWARD_CHANNEL = 1;
+    public static final int RAMP_REVERSE_CHANNEL = 1;
+    public static final int RAMP_GATE_BUTTON = 1;
 }

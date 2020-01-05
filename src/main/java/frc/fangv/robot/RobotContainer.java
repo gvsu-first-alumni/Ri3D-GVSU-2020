@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.fangv.robot.commands.GateCommand;
 import frc.fangv.robot.commands.RampMotorCommand;
 import frc.fangv.robot.subsystems.CameraSubsystem;
 import frc.fangv.robot.subsystems.DriveTrainSubsystem;
@@ -29,7 +30,6 @@ public class RobotContainer
     private final CameraSubsystem camera = CameraSubsystem.getInstance();
     private final RampSubsystem ramp = RampSubsystem.getInstance();
 
-    private OperatorInput oi;
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -47,8 +47,11 @@ public class RobotContainer
      * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton JoystickButton}.
      */
     private void configureButtonBindings() {
-        oi  = new OperatorInput();
-        JoystickButton rampMotorButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMPMOTORBUTTON);
+        JoystickButton rampMotorButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMP_MOTOR_BUTTON);
+        rampMotorButton.whileHeld(new RampMotorCommand(ramp));
+
+        JoystickButton gateButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.RAMP_GATE_BUTTON);
+        gateButton.whenPressed(new GateCommand(ramp));
     }
 
 
