@@ -14,6 +14,7 @@ public class DriveTrainSubsystem implements Subsystem
     private CANSparkMax       left;
     private CANSparkMax       right;
 
+
     /**
      * The Singleton instance of this DriveTrainSubsystem. External classes should
      * use the {@link #getInstance()} method to get the instance.
