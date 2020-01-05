@@ -8,11 +8,10 @@
 package frc.fangv.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.fangv.robot.commands.ExampleCommand;
-import frc.fangv.robot.subsystems.ExampleSubsystem;
+import frc.fangv.robot.subsystems.CameraSubsystem;
+import frc.fangv.robot.subsystems.DriveTrainSubsystem;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -23,12 +22,10 @@ import frc.fangv.robot.subsystems.ExampleSubsystem;
 public class RobotContainer
 {
     // The robot's subsystems and commands are defined here...
-    private final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
-
-    private final ExampleCommand autonomousCommand = new ExampleCommand(exampleSubsystem);
+    private final DriveTrainSubsystem driveTrain = DriveTrainSubsystem.getInstance();
+    private final CameraSubsystem camera = CameraSubsystem.getInstance();
 
     private OperatorInput oi;
-
 
     /**
      * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -58,7 +55,7 @@ public class RobotContainer
      */
     public Command getAutonomousCommand()
     {
-        // An ExampleCommand will run in autonomous
-        return autonomousCommand;
+        // TODO: Change to auto
+        return null;
     }
 }
