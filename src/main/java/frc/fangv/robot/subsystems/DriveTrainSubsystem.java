@@ -44,6 +44,8 @@ public class DriveTrainSubsystem implements Subsystem
         setDefaultCommand(new DriveCommand(this));
         this.left = new CANSparkMax(Constants.LEFT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
         this.right = new CANSparkMax(Constants.RIGHT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
+        this.left.getEncoder().setInverted(false);
+        this.right.getEncoder().setInverted(false);
         this.drive = new DifferentialDrive(this.left, this.right);
     }
 
@@ -65,6 +67,14 @@ public class DriveTrainSubsystem implements Subsystem
     public void setForward(boolean forward)
     {
         isForward = forward;
+    }
+
+    public double getLeftDistance() {
+        return this.left.getEncoder().getPosition();
+    }
+
+    public double getRightDistance() {
+        return  this.right.getEncoder().getPosition();
     }
 
     /**

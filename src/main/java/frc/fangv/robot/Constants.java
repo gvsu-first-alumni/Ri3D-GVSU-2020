@@ -41,4 +41,6 @@ public final class Constants
     public final static int LEFT_DRIVE = 5;
     public final static int RIGHT_DRIVE = 4;
     public final static int TOGGLE_FRONT_BUTTON = 5;
+
+    public final static double TICKS_PER_INCH = 23.8;
 }
