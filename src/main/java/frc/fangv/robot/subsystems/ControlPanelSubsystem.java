@@ -1,5 +1,6 @@
 package frc.fangv.robot.subsystems;
 
+import com.revrobotics.CANSparkMaxLowLevel;
 import frc.fangv.robot.Constants;
 import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj2.command.Subsystem;
@@ -21,7 +22,7 @@ public class ControlPanelSubsystem implements Subsystem {
      * should use the {@link #getInstance()} method to get the instance.
      */
     private ControlPanelSubsystem() {
-
+        controlPanelMotor = new CANSparkMax(Constants.CONTROL_PANEL_MOTOR_CHANNEL, CANSparkMaxLowLevel.MotorType.kBrushless);
     }
 
     /**

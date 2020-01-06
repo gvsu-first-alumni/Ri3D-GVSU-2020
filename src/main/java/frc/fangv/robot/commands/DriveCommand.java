@@ -28,6 +28,7 @@ public class DriveCommand implements Command
     @Override
     public void execute()
     {
+        System.out.println(driveTrainSubsystem.getLeftDistance() + "\t" + driveTrainSubsystem.getRightDistance());
         driveTrainSubsystem.tankDrive(
                 OperatorInput.getDriverStick().getY(GenericHID.Hand.kLeft),
                 OperatorInput.getDriverStick().getY(GenericHID.Hand.kRight));

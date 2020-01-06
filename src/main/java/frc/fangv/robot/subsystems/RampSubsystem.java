@@ -1,15 +1,13 @@
 package frc.fangv.robot.subsystems;
 
-
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.Subsystem;
 import frc.fangv.robot.Constants;
 
-public class RampSubsystem extends SubsystemBase {
-
+public class RampSubsystem implements Subsystem
+{
     CANSparkMax rampMotor;
     Solenoid    gate;
 

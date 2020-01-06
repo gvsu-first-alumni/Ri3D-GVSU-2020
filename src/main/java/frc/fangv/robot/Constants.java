@@ -32,9 +32,10 @@ public final class Constants
     public static final double STOPSPEED = 0.0;
     public static final int CONTROLPANELWHEELFORWARDBUTTON = 5;
     public static final int CONTROLPANELWHEELBACKWARDBUTTON = 6;
+    public static final int CONTROL_PANEL_MOTOR_CHANNEL = 3;
 
     /** Hook and Winch Stuff */
-    public static final int HOOK_CHANNEL = 0;
+    public static final int HOOK_CHANNEL = 1;
     public static final int WINCH_CHANNEL = 1;
     public static final double WINCHMOTORSPEEDFORWARD = 0.75;
     public static final double WINCHMOTORSPEEDBACKWARD = -0.75;

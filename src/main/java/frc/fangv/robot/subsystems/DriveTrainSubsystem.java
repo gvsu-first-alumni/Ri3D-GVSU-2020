@@ -44,8 +44,9 @@ public class DriveTrainSubsystem implements Subsystem
         setDefaultCommand(new DriveCommand(this));
         this.left = new CANSparkMax(Constants.LEFT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
         this.right = new CANSparkMax(Constants.RIGHT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
-        this.left.getEncoder().setInverted(false);
-        this.right.getEncoder().setInverted(false);
+        //this.left.getEncoder().setInverted(false);
+        //this.right.getEncoder().setInverted(true);
+        this.resetEncoders();
         this.drive = new DifferentialDrive(this.left, this.right);
     }
 
@@ -74,9 +75,13 @@ public class DriveTrainSubsystem implements Subsystem
     }
 
     public double getRightDistance() {
-        return  this.right.getEncoder().getPosition();
+        return  -this.right.getEncoder().getPosition();
     }
 
+    public void resetEncoders() {
+        this.left.getEncoder().setPosition(0);
+        this.right.getEncoder().setPosition(0);
+    }
     /**
      * Returns the Singleton instance of this DriveTrainSubsystem. This static method
      * should be used -- {@code DriveTrainSubsystem.getInstance();} -- by external

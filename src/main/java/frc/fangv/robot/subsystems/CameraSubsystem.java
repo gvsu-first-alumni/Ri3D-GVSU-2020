@@ -19,7 +19,8 @@ public class CameraSubsystem implements Subsystem
      */
     private CameraSubsystem()
     {
-        CameraServer.getInstance().startAutomaticCapture();
+        CameraServer.getInstance().startAutomaticCapture()
+                .setResolution(640, 360);
     }
 
     /**
