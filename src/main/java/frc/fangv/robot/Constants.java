@@ -52,4 +52,11 @@ public final class Constants
     public final static int TOGGLE_FRONT_BUTTON = 5;
 
     public final static double TICKS_PER_INCH = 23.8;
+    public final static double TICKS_PER_CENTIMETER = ((5.5 * Math.PI) / 42);
+    public final static double ARC_LENGTH = 31.75;
+
+    public final static int YELLOW_BUTTON = 4;
+    public final static int RED_BUTTON = 2;
+    public final static int GREEN_BUTTON = 1;
+    public final static int BLUE_BUTTON = 3;
 }
