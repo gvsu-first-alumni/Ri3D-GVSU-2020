@@ -36,8 +36,8 @@ public final class Constants
     /** Hook and Winch Stuff */
     public static final int HOOK_CHANNEL = 0;
     public static final int WINCH_CHANNEL = 1;
-    public static final double WINCHMOTORSPEEDFORWARD = 0.75;
-    public static final double WINCHMOTORSPEEDBACKWARD = -0.75;
+    public static final double WINCHMOTORSPEEDFORWARD = 0.30;
+    public static final double WINCHMOTORSPEEDBACKWARD = -0.30;
     public static final double WINCHMOTORSTOP = 0.0;
     public static final int HOOKSOLENOIDEXTENDRELEASEBUTTON = 9;
     public static final int WINCHMOTORFORWARDBUTTON = 7;
