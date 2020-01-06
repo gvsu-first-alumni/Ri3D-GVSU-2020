@@ -17,6 +17,15 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
+    public static final double RAMP_MOTOR_SPEED = 0;
+    public static final double RAMP_MOTOR_STOP = 0;
+    public static final int RAMP_MOTOR_BUTTON = 1;
+    public static final int RAMP_MOTOR_ID = 1;
+
+    public static final int RAMP_FORWARD_CHANNEL = 0;
+    public static final int RAMP_REVERSE_CHANNEL = 1;
+    public static final int RAMP_GATE_BUTTON = 2;
+
     /** Control Panel Stuff */
     public static final double FORWARDSPEED = 0.75;
     public static final double BACKWARDSPEED = -0.075;
@@ -25,6 +34,8 @@ public final class Constants
     public static final int CONTROLPANELWHEELBACKWARDBUTTON = 6;
 
     /** Hook and Winch Stuff */
+    public static final int HOOK_CHANNEL = 0;
+    public static final int WINCH_CHANNEL = 1;
     public static final double WINCHMOTORSPEEDFORWARD = 0.75;
     public static final double WINCHMOTORSPEEDBACKWARD = -0.75;
     public static final double WINCHMOTORSTOP = 0.0;
@@ -39,4 +50,6 @@ public final class Constants
     public final static int LEFT_DRIVE = 5;
     public final static int RIGHT_DRIVE = 4;
     public final static int TOGGLE_FRONT_BUTTON = 5;
+
+    public final static double TICKS_PER_INCH = 23.8;
 }
