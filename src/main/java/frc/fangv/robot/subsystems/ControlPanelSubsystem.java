@@ -41,5 +41,11 @@ public class ControlPanelSubsystem implements Subsystem {
 
     /** STOP */
     public void Stop(){ controlPanelMotor.set(Constants.STOPSPEED);}
+
+    /** Set */
+    public void Set(double passVal){ controlPanelMotor.set(passVal);}
+
+    /** Get */
+    public double getPos(){ return controlPanelMotor.getEncoder().getPosition();}
 }
 
