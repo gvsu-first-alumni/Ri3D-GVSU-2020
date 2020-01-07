@@ -79,6 +79,18 @@ public class RobotContainer
 
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
         toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
+
+        JoystickButton yellow = new JoystickButton(OperatorInput.getDriverStick(), Constants.YELLOW_BUTTON);
+        yellow.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "Y"));
+
+        JoystickButton red = new JoystickButton(OperatorInput.getDriverStick(), Constants.RED_BUTTON);
+        red.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "R"));
+
+        JoystickButton blue = new JoystickButton(OperatorInput.getDriverStick(), Constants.BLUE_BUTTON);
+        blue.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel,"B"));
+
+        JoystickButton green = new JoystickButton(OperatorInput.getDriverStick(), Constants.GREEN_BUTTON);
+        green.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "G"));
     }
 
 

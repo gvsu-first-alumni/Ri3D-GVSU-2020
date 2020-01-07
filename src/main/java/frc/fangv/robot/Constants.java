@@ -37,8 +37,8 @@ public final class Constants
     /** Hook and Winch Stuff */
     public static final int HOOK_CHANNEL = 1;
     public static final int WINCH_CHANNEL = 1;
-    public static final double WINCHMOTORSPEEDFORWARD = 0.75;
-    public static final double WINCHMOTORSPEEDBACKWARD = -0.75;
+    public static final double WINCHMOTORSPEEDFORWARD = 0.30;
+    public static final double WINCHMOTORSPEEDBACKWARD = -0.30;
     public static final double WINCHMOTORSTOP = 0.0;
     public static final int HOOKSOLENOIDEXTENDRELEASEBUTTON = 9;
     public static final int WINCHMOTORFORWARDBUTTON = 7;
@@ -53,4 +53,11 @@ public final class Constants
     public final static int TOGGLE_FRONT_BUTTON = 5;
 
     public final static double TICKS_PER_INCH = 23.8;
+    public final static double TICKS_PER_CENTIMETER = ((5.5 * Math.PI) / 42);
+    public final static double ARC_LENGTH = 31.75;
+
+    public final static int YELLOW_BUTTON = 4;
+    public final static int RED_BUTTON = 2;
+    public final static int GREEN_BUTTON = 1;
+    public final static int BLUE_BUTTON = 3;
 }
