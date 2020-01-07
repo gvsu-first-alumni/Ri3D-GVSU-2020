@@ -58,9 +58,9 @@ public class RobotContainer
         /** Control Panel Stuff */
         JoystickButton controlPanelForwardButton =
                 new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
-        JoystickButton controlPanelBackwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELBACKWARDBUTTON);
-        controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand(controlPanel));
+        /*JoystickButton controlPanelBackwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELBACKWARDBUTTON);*/
+        //controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand(controlPanel));
         controlPanelForwardButton.whileHeld(new ControlPanelWheelForwardCommand(controlPanel));
 
 
@@ -69,12 +69,12 @@ public class RobotContainer
                 new JoystickButton(OperatorInput.getDriverStick(),Constants.HOOKSOLENOIDEXTENDRELEASEBUTTON);
         JoystickButton winchMotorForwardButton =
                 new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORFORWARDBUTTON);
-        JoystickButton winchMotorBackwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORBACKWARDBUTTON);
+        /*JoystickButton winchMotorBackwardButton =
+                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORBACKWARDBUTTON);*/
         hookSolenoidExtendReleaseButton.whenPressed
                 (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
         winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
-        winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
+        //winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
 
 
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
