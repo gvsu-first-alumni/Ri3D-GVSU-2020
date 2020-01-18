@@ -23,7 +23,9 @@ public class RampMotorCommand implements Command
     }
 
     @Override
-    public void execute() { RampSubsystem.getInstance().forward(); }
+    public void execute() {
+        //System.out.println("RAMPAPPAPAPAPP");
+        this.rampSubsystem.forward(); }
 
     @Override
     public boolean isFinished() {
@@ -32,7 +34,7 @@ public class RampMotorCommand implements Command
     }
 
     @Override
-    public void end(boolean interrupted) { RampSubsystem.getInstance().stop(); }
+    public void end(boolean interrupted) { this.rampSubsystem.stop(); }
 
     @Override
     public Set<Subsystem> getRequirements() { return this.subsystems; }

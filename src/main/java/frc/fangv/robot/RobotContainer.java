@@ -57,39 +57,34 @@ public class RobotContainer
 
         /** Control Panel Stuff */
         JoystickButton controlPanelForwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELFORWARDBUTTON);
-        /*JoystickButton controlPanelBackwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(),Constants.CONTROLPANELWHEELBACKWARDBUTTON);*/
-        //controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand(controlPanel));
+                new JoystickButton(OperatorInput.getCodriverStick(), Constants.CONTROLPANELWHEELFORWARDBUTTON);
+        JoystickButton controlPanelBackwardButton =
+                new JoystickButton(OperatorInput.getCodriverStick(), Constants.CONTROLPANELWHEELBACKWARDBUTTON);
+        controlPanelBackwardButton.whileHeld(new ControlPanelWheelBackwardCommand(controlPanel));
         controlPanelForwardButton.whileHeld(new ControlPanelWheelForwardCommand(controlPanel));
-
 
         /** Hook And Winch Stuff */
         JoystickButton hookSolenoidExtendReleaseButton =
                 new JoystickButton(OperatorInput.getDriverStick(),Constants.HOOKSOLENOIDEXTENDRELEASEBUTTON);
-        JoystickButton winchMotorForwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORFORWARDBUTTON);
-        /*JoystickButton winchMotorBackwardButton =
-                new JoystickButton(OperatorInput.getDriverStick(), Constants.WINCHMOTORBACKWARDBUTTON);*/
+        JoystickButton winchMotorButton =
+                new JoystickButton(OperatorInput.getCodriverStick(), Constants.WINCHMOTORFORWARDBUTTON);
         hookSolenoidExtendReleaseButton.whenPressed
                 (new ToggleHookSolenoidExtendReleaseCommand(hookAndWinch));
-        winchMotorForwardButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
-        //winchMotorBackwardButton.whileHeld(new WinchMotorBackwardCommand(hookAndWinch));
-
+        winchMotorButton.whileHeld(new WinchMotorForwardCommand(hookAndWinch));
 
         JoystickButton toggleFrontButton = new JoystickButton(OperatorInput.getDriverStick(), Constants.TOGGLE_FRONT_BUTTON);
         toggleFrontButton.toggleWhenPressed(new ChangeFrontCommand(driveTrain));
 
-        JoystickButton yellow = new JoystickButton(OperatorInput.getDriverStick(), Constants.YELLOW_BUTTON);
+        JoystickButton yellow = new JoystickButton(OperatorInput.getCodriverStick(), Constants.YELLOW_BUTTON);
         yellow.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "Y"));
 
-        JoystickButton red = new JoystickButton(OperatorInput.getDriverStick(), Constants.RED_BUTTON);
+        JoystickButton red = new JoystickButton(OperatorInput.getCodriverStick(), Constants.RED_BUTTON);
         red.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "R"));
 
-        JoystickButton blue = new JoystickButton(OperatorInput.getDriverStick(), Constants.BLUE_BUTTON);
+        JoystickButton blue = new JoystickButton(OperatorInput.getCodriverStick(), Constants.BLUE_BUTTON);
         blue.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel,"B"));
 
-        JoystickButton green = new JoystickButton(OperatorInput.getDriverStick(), Constants.GREEN_BUTTON);
+        JoystickButton green = new JoystickButton(OperatorInput.getCodriverStick(), Constants.GREEN_BUTTON);
         green.whenPressed(new ControlPanelSpinDistanceCommand(controlPanel, "G"));
     }
 

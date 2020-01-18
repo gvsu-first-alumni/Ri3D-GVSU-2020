@@ -42,7 +42,7 @@ public class RampSubsystem implements Subsystem
         return INSTANCE;
     }
 
-    public void forward(){ rampMotor.set(Constants.RAMP_MOTOR_SPEED); }
+    public void forward(){ rampMotor.set(-Constants.RAMP_MOTOR_SPEED); }
 
     public void stop() { rampMotor.set(Constants.RAMP_MOTOR_STOP); }
 

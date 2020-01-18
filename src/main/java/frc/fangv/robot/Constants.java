@@ -17,14 +17,14 @@ package frc.fangv.robot;
  */
 public final class Constants 
 {
-    public static final double RAMP_MOTOR_SPEED = .4;
+    public static final double RAMP_MOTOR_SPEED = .8;
     public static final double RAMP_MOTOR_STOP = 0;
     public static final int RAMP_MOTOR_BUTTON = 5;
     public static final int RAMP_MOTOR_ID = 2;
 
     public static final int RAMP_FORWARD_CHANNEL = 0;
     //public static final int RAMP_REVERSE_CHANNEL = 1;
-    public static final int RAMP_GATE_BUTTON = 2;
+    public static final int RAMP_GATE_BUTTON = 7;
 
     /** Control Panel Stuff */
     public static final double FORWARDSPEED = 0.75;
@@ -37,7 +37,7 @@ public final class Constants
     /** Hook and Winch Stuff */
     public static final int HOOK_CHANNEL = 1;
     public static final int WINCH_CHANNEL = 7;
-    public static final double WINCHMOTORSPEEDFORWARD = 0.30;
+    public static final double WINCHMOTORSPEEDFORWARD = 0.50;
     public static final double WINCHMOTORSPEEDBACKWARD = -0.30;
     public static final double WINCHMOTORSTOP = 0.0;
     public static final int HOOKSOLENOIDEXTENDRELEASEBUTTON = 9;
@@ -52,7 +52,7 @@ public final class Constants
     public final static int RIGHT_DRIVE = 4;
     public final static int TOGGLE_FRONT_BUTTON = 8;
 
-    public final static double TICKS_PER_INCH = 23.8;
+    public final static double INCH_PER_TICKS       = 3.793;
     public final static double TICKS_PER_CENTIMETER = ((5.5 * Math.PI) / 42);
     public final static double ARC_LENGTH = 31.75;
 

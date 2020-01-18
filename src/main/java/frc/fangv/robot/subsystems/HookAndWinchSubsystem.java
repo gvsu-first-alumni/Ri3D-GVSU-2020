@@ -49,10 +49,10 @@ public class HookAndWinchSubsystem implements Subsystem {
     public void release(){ hookSolenoid.set(false);}
 
     /** Winch Motor Forward */
-    public void forward(){ winchMotor.set(Constants.WINCHMOTORSPEEDFORWARD);}
+    public void forward(){ winchMotor.set(-Constants.WINCHMOTORSPEEDFORWARD);}
 
     /** Winch Motor Backward */
-    public void backward(){ winchMotor.set(Constants.WINCHMOTORSPEEDBACKWARD);}
+    public void backward(){ winchMotor.set(-Constants.WINCHMOTORSPEEDBACKWARD);}
 
     /** Winch Motor Stop */
     public void stop(){ winchMotor.set(Constants.WINCHMOTORSTOP);}
