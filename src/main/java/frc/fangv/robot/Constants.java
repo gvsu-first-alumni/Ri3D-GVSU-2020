@@ -52,7 +52,7 @@ public final class Constants
     public final static int RIGHT_DRIVE = 4;
     public final static int TOGGLE_FRONT_BUTTON = 8;
 
-    public final static double INCH_PER_TICKS       = 3.793;
+    public final static double INCH_PER_TICKS       = 2;
     public final static double TICKS_PER_CENTIMETER = ((5.5 * Math.PI) / 42);
     public final static double ARC_LENGTH = 31.75;
 

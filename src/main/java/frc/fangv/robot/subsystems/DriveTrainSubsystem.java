@@ -44,6 +44,8 @@ public class DriveTrainSubsystem implements Subsystem
         setDefaultCommand(new DriveCommand(this));
         this.left = new CANSparkMax(Constants.LEFT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
         this.right = new CANSparkMax(Constants.RIGHT_DRIVE, CANSparkMaxLowLevel.MotorType.kBrushless);
+        this.left.setIdleMode(CANSparkMax.IdleMode.kBrake);
+        this.right.setIdleMode(CANSparkMax.IdleMode.kBrake);
         //this.left.getEncoder().setInverted(false);
         //this.right.getEncoder().setInverted(true);
         this.resetEncoders();
@@ -56,8 +58,8 @@ public class DriveTrainSubsystem implements Subsystem
             left = -right;
             right = temp;
         }
-        if (isFired){ drive.tankDrive(-0.5*left, -0.5*right); }
-        else { drive.tankDrive(-left, -right);}
+        if (isFired){ drive.tankDrive(-0.25*left, -0.25*right); }
+        else { drive.tankDrive(-.75*left, -.75*right);}
     }
 
     public boolean isForward()

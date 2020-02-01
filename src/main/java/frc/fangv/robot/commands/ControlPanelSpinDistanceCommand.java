@@ -20,6 +20,8 @@ public class ControlPanelSpinDistanceCommand implements Command {
     private String color;
     private Map<String, Map<String, Double>> colors;
 
+    private Boolean abort = false;
+
     public String getColor() {
         return color;
     }
@@ -66,7 +68,13 @@ public class ControlPanelSpinDistanceCommand implements Command {
 
     @Override
     public void initialize() {
-        distance = colors.get(color).get(DriverStation.getInstance().getGameSpecificMessage())
+
+        String fieldColor = DriverStation.getInstance().getGameSpecificMessage();
+
+        if(fieldColor.isEmpty())
+            abort = true;
+
+        distance = colors.get(color).get(fieldColor)
                 * Constants.ARC_LENGTH * Constants.TICKS_PER_CENTIMETER;
     }
 
@@ -78,7 +86,7 @@ public class ControlPanelSpinDistanceCommand implements Command {
     @Override
     public boolean isFinished() {
         // TODO: Make this return true when this Command no longer needs to run execute()
-        if (distance < controlPanelSubsystem.getPos())
+        if ((distance < controlPanelSubsystem.getPos()) || abort)
             return true;
         else
             return false;

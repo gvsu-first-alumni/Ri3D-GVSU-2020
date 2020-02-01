@@ -11,5 +11,5 @@ public class OperatorInput
     {
         return driverStick;
     }
-    public static XboxController getCodriverStick() { return driverStick; }
+    public static XboxController getCodriverStick() { return coDriverStick; }
 }
